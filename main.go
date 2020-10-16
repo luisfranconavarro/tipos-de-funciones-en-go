@@ -8,18 +8,16 @@ func fibonacci(x int) int{
 	}
 	if x == 1{
 		return 1
-	}else{
-		return fibonacci(x-1) + fibonacci(x-2)
 	}
+	return fibonacci(x-1) + fibonacci(x-2)
+	
 }
 
 func masGrande(datos ...int) int{
-	var aux int
+	aux := datos[0]
 	for i := range datos {
-		if i+1 < len(datos){
-			if datos[i] > datos[i+1]{
-				aux = datos[i]
-			}
+		if datos[i] > aux{
+			aux = datos[i]
 		}
 	}
 	return aux
@@ -41,11 +39,14 @@ func intercambia(a *int, b*int){
 }
 
 func main()  {
+	
 	impares := generadorImpares()
 	a, b := -5, 8
 
-	fmt.Println(masGrande(5,40,1,3,9,-15,19,22,6,7))
-	
+	fmt.Println(fibonacci(10))
+
+	fmt.Println(masGrande(-6,3,-10,12,8,16,-5,2))
+	 
 	fmt.Println(impares())
 	fmt.Println(impares())
 	fmt.Println(impares())
@@ -54,7 +55,5 @@ func main()  {
 	fmt.Println(a, b)
 	intercambia(&a, &b)
 	fmt.Println(a, b)
-
-	fmt.Println(fibonacci(10))
-
+	
 }
